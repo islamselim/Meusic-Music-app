@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>testapp</title>
+
+  <link href="/static/css/main.css" rel="stylesheet" />
+  <script src="/static/js/jquery.js"></script>
+
+  <script>
+    var player;
+
+    $(document).ready(function () {
+      player = document.getElementById("player");
+      player.src = "/static/songs/s1.mp3";
+      //player.play();
+    });
+  </script>
+</head>
+
+<body>
+  <audio id="player"></audio>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>
