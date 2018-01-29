@@ -3,6 +3,7 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 .materialize-red {
     background-color: #e51c23 !important;
 }
@@ -2161,6 +2162,7 @@ body {
     margin: 0;
     background-color: #f2f2f2;
     color: #616161;
+    overflow: hidden;
 }
 
 /* HTML5 display definitions
@@ -4440,6 +4442,7 @@ nav .brand-logo {
     display: inline-block;
     font-size: 2.1rem;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
     nav .brand-logo.center {
@@ -4526,7 +4529,7 @@ nav ul {
             }
 
         nav ul a:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
     nav ul.left {
@@ -5392,7 +5395,7 @@ small {
 }
 
     .btn:hover, .btn-large:hover {
-        background-color: #2bbbad;
+        background-color: #00897b !important;
     }
 
 .btn-floating {
@@ -5609,6 +5612,32 @@ button.btn-floating {
 .btn-block {
     display: block;
 }
+
+.btn-player {
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    height: 64px;
+    width: 64px;
+    text-align: center;
+    padding: 0 !important;
+    line-height: 64px;
+    margin: 13px 10px;
+}
+
+    .btn-player.control {
+        width: 40px;
+        height: 40px;
+        line-height: 40px !important;
+        margin-top: 15px !important;
+    }
+
+    .btn-player i {
+        font-size: 2.6rem !important;
+    }
+
+    .btn-player.control i {
+        font-size: 1.3rem !important;
+    }
 
 .dropdown-content {
     background-color: #fff;
@@ -9631,4 +9660,9 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     z-index: 2;
     display: flex;
     position: relative;
+}
+
+.scrolling-div {
+    height: calc(100vh - 202px);
+    overflow-y: auto
 }

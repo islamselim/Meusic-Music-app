@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import App from './App'
 import Users from './Users.vue'
 import Home from './Home.vue'
+import Songs from './Songs.vue'
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false
@@ -13,7 +14,8 @@ const json = require('./obj.json');
 
 const routes = [
   { path: '/users', component: Users },
-  { path: '/', component: Home }
+  { path: '/', component: Home },
+  { path: '/songs', component: Songs}
 ];
 
 const router = new VueRouter({
