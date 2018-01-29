@@ -1,3 +1,3 @@
 <template>
-  <h1>Users page</h1>
+  <h1>Search songs page</h1>
 </template>
