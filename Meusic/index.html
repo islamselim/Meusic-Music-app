@@ -17,9 +17,19 @@
     $(document).ready(function () {
       $(".button-collapse").sideNav();
       player = document.getElementById("player");
-      player.src = "/static/songs/s1.mp3";
-      //player.play();
+      player.src = "/static/songs/s2.mp3";
+      $("#player").on('ended',function () {
+        $("#control").text("play_arrow");
+      });
     });
+
+    function lineMovement() {
+      if (!player.paused) {
+        var prec = (player.currentTime * 100) / player.duration;
+        $("#line").css("width", prec + "%");
+        setTimeout(function () { lineMovement(); }, 100);
+      }
+    }
   </script>
 </head>
 <body>

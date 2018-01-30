@@ -34,7 +34,7 @@
     </div>
     <div class="row white player">
         <div class="progress">
-            <div class="determinate" style="width: 70%"></div>
+            <div id="line" class="determinate" style="width: 0%"></div>
         </div>
         <div class="col s4">
             <div class="left" style="width:30%">
@@ -66,6 +66,7 @@ export default {
       if(player.paused){
         player.play();
         $("#control").text("pause");
+        lineMovement();
       }
       else{
         player.pause();

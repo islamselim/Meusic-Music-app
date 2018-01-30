@@ -24,7 +24,7 @@ const router = new VueRouter({
   data:{
     list: json
   }
-});
+})
 
 /* eslint-disable no-new */
 new Vue({
