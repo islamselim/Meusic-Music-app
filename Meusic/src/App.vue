@@ -33,8 +33,8 @@
         <router-view></router-view>
     </div>
     <div class="row white player">
-        <div class="progress">
-            <div id="line" class="determinate" style="width: 0%"></div>
+        <div id="line" style="position:absolute; width:100%; z-index:999999">
+            <div id="p-slider"></div>
         </div>
         <div class="col s4">
             <div class="left" style="width:30%">

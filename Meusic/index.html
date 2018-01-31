@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -7,34 +8,65 @@
 
   <script src="/static/js/jquery.js"></script>
   <script src="/static/js/materialize.js"></script>
+  <script src="/static/js/nouislider.js"></script>
   <link href="/static/css/materialize.css" rel="stylesheet" />
   <link href="/static/css/icons.css" rel="stylesheet" />
+  <link href="/static/css/nouislider.css" rel="stylesheet" />
   <link href="/static/fab.png" rel="icon" />
 
   <script>
     var player;
+    var slider;
 
     $(document).ready(function () {
       $(".button-collapse").sideNav();
       player = document.getElementById("player");
       player.src = "/static/songs/s2.mp3";
-      $("#player").on('ended',function () {
+      player.load();
+
+      slider = document.getElementById('p-slider');
+      noUiSlider.create(slider, {
+        start: 0,
+        connect: [true, false],
+        range: {
+          'min': 0,
+          'max': 1
+        }
+      });
+
+      slider.noUiSlider.on('set', function () {
+        var time = slider.noUiSlider.get();
+        player.currentTime = time;
+      });
+
+      $("#player").on('ended', function () {
         $("#control").text("play_arrow");
+      });
+
+      $("#player").on('play', function () {
+        slider.noUiSlider.updateOptions({
+          range: {
+            'min': 0,
+            'max': player.duration
+          }
+        });
       });
     });
 
     function lineMovement() {
       if (!player.paused) {
         var prec = (player.currentTime * 100) / player.duration;
-        $("#line").css("width", prec + "%");
-        setTimeout(function () { lineMovement(); }, 100);
+        slider.noUiSlider.set(player.currentTime);
+        setTimeout(function () { lineMovement(); }, 500);
       }
     }
   </script>
 </head>
+
 <body>
   <audio id="player"></audio>
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>
+
 </html>

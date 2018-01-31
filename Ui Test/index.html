@@ -10,13 +10,28 @@
     <link href="fab.png" rel="icon" />
 
     <script>
+        var player;
+        var progressBar;
+
         $(document).ready(function () {
             $(".button-collapse").sideNav();
+            player = document.getElementById("player");
+            progressBar = document.querySelector("progress");
+            progressBar.addEventListener("click", seek);
+            player.src = "s1.mp3";
+            player.load();
         });
+
+        function seek(e) {
+            var percent = e.offsetX / this.offsetWidth;
+            player.currentTime = percent * player.duration;
+            progressBar.value = percent * 100;
+        }
     </script>
 
 </head>
 <body>
+    <audio id="player"></audio>
     <nav class="nav-extended">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo"><i class="material-icons">equalizer</i> Meusic</a>
@@ -47,8 +62,12 @@
         </div>
     </nav>
     <div class="container">
-        <div id="home" class="col s12 center">
+        <div id="home" class="col s12 center range-field">
             <h1>This is Home page</h1>
+            <br />
+            <br />
+            <progress min="0" max="100" value="0"></progress>
+            <div></div>
         </div>
         <div id="ml" class="col s12 center">
             <h1>My library will be here</h1>
