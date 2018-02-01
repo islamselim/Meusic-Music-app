@@ -33,8 +33,8 @@
         <router-view></router-view>
     </div>
     <div class="row white player">
-        <div id="line" style="position:absolute; width:100%; z-index:999999">
-            <div id="p-slider"></div>
+        <div class="progress">
+            <progress class="determinate" min="0" max="100" value="0"></progress>
         </div>
         <div class="col s4">
             <div class="left" style="width:30%">
@@ -66,7 +66,7 @@ export default {
       if(player.paused){
         player.play();
         $("#control").text("pause");
-        lineMovement();
+        move();
       }
       else{
         player.pause();

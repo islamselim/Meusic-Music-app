@@ -15,6 +15,18 @@
 
         $(document).ready(function () {
             $(".button-collapse").sideNav();
+
+            $("#playpause").click(function () {
+                if (player.paused) {
+                    player.play();
+                    move();
+                }
+                else {
+                    player.pause();
+
+                }
+            });
+
             player = document.getElementById("player");
             progressBar = document.querySelector("progress");
             progressBar.addEventListener("click", seek);
@@ -26,6 +38,14 @@
             var percent = e.offsetX / this.offsetWidth;
             player.currentTime = percent * player.duration;
             progressBar.value = percent * 100;
+        }
+
+        function move() {
+            if (!player.paused) {
+                var e = document.querySelector("progress");
+                progressBar.value = parseFloat((player.currentTime * 100) / player.duration);
+                setTimeout(function () { move(); }, 100);
+            }
         }
     </script>
 
@@ -66,8 +86,6 @@
             <h1>This is Home page</h1>
             <br />
             <br />
-            <progress min="0" max="100" value="0"></progress>
-            <div></div>
         </div>
         <div id="ml" class="col s12 center">
             <h1>My library will be here</h1>
@@ -78,7 +96,7 @@
     </div>
     <div class="row white player">
         <div class="progress">
-            <div class="determinate" style="width: 70%"></div>
+            <progress class="determinate" min="0" max="100" value="0"></progress>
         </div>
         <div class="col s4">
             <div class="left" style="width:30%">
@@ -93,7 +111,7 @@
         </div>
         <div class="col s4 center">
             <button class="btn btn-player control waves-effect"><i class="material-icons">skip_previous</i></button>
-            <button class="btn btn-player teal darken-3 waves-effect"><i class="material-icons">play_arrow</i></button>
+            <button id="playpause" class="btn btn-player teal darken-3 waves-effect"><i class="material-icons">play_arrow</i></button>
             <button class="btn btn-player control waves-effect"><i class="material-icons">skip_next</i></button>
         </div>
         <div class="col s4"></div>

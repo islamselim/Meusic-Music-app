@@ -9671,3 +9671,16 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     width: 90px;
     height: auto;
 }
+
+progress {
+    width: 100%;
+}
+
+    progress[value]::-webkit-progress-value {
+        background-color: #26a69a !important;
+        transition: .1s;
+    }
+
+    progress[value]::-webkit-progress-bar {
+        background-color: #acece6;
+    }
