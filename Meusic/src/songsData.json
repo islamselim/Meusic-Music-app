@@ -1,0 +1,20 @@
+{
+    "songs":[
+        {
+            "id": 1,
+            "name":"Bum Bum Tam Tam",
+            "artist":"MC Fioti",
+            "album":"Bum Bum Tam Tam",
+            "src":"/static/data/songs/s1.mp3",
+            "img":"/static/data/images/s1.jpeg"
+        },
+        {
+            "id": 2,
+            "name":"Dance with Me",
+            "artist":"Lost Frequencies",
+            "album":"Less Is More",
+            "src":"/static/data/songs/s2.mp3",
+            "img":"/static/data/images/s2.jpg"
+        }
+    ]
+}

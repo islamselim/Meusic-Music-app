@@ -20,8 +20,6 @@
       player = document.getElementById("player");
       progressBar = document.querySelector("progress");
       progressBar.addEventListener("click", seek);
-      player.src = "/static/songs/s2.mp3";
-      player.load();
 
       $("#player").on('ended', function () {
         $("#control").text("play_arrow");

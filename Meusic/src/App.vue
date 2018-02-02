@@ -39,12 +39,12 @@
         <div class="col s4">
             <div class="left" style="width:30%">
                 <div style="margin-left:-1.5rem">
-                    <img class="album-img" src="https://is4-ssl.mzstatic.com/image/thumb/Music127/v4/fa/d4/84/fad484a0-e13f-b1ac-92a2-8efb468bfe2c/0617465883354.png/1200x630bb.jpg" alt="img" />
+                    <img class="album-img" :src="currentSong.img" alt="img" />
                 </div>
             </div>
             <div class="right" style="width:70%;">
-                <h5>Title</h5>
-                <h6>Artist - Album</h6>
+                <h5>{{ currentSong.name }}</h5>
+                <h6>{{ currentSong.artist }} - {{ currentSong.album }}</h6>
             </div>
         </div>
         <div class="col s4 center">
@@ -61,6 +61,11 @@
 <script>
 export default {
   name: 'App',
+  data(){
+      return {
+          currentSong: this.$router.options.data.songs.songs[0]
+      }
+  },
   methods:{
     play(){
       if(player.paused){
@@ -73,6 +78,13 @@ export default {
          $("#control").text("play_arrow");
       }
     }
+  },
+  mounted(){
+      var tmp = this.$data.currentSong.src;
+      setTimeout(function(){
+        player.src = tmp;
+        player.load();
+      },100);
   }
 }
 </script>

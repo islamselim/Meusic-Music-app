@@ -10,7 +10,7 @@ import Songs from './Songs.vue'
 Vue.use(VueRouter);
 Vue.config.productionTip = false
 
-const json = require('./obj.json');
+const songs = require('./songsData.json');
 
 const routes = [
   { path: '/users', component: Users },
@@ -22,7 +22,7 @@ const router = new VueRouter({
   routes,
   mode: 'history',
   data:{
-    list: json
+    songs: songs
   }
 })
 
@@ -32,6 +32,6 @@ new Vue({
   router,
   render: h => h(App),
   data:{
-    lst: json
+    songs: songs
   }
 })
